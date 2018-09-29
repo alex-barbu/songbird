@@ -3,6 +3,7 @@ version: '2'
 services:
     db:
         image: mysql
+        command: "--innodb_use_native_aio=0"
         volumes:
             - "./.data/db:/var/lib/mysql"
         environment:
