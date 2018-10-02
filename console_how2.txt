@@ -1,0 +1,10 @@
+
+-- go to symfony app directory first
+$ cd /c/Users/Admin/www/songbird/symfony
+
+1) delete cache
+$ php bin/console cache:clear -e prod -- for "prod" environment
+$ winpty docker-compose exec php php bin/console cache:clear -e prod -- inside the php container
+
+
+

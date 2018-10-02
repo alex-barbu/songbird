@@ -1,0 +1,12 @@
+-- run command inside of a service
+$ winpty docker-compose exec php php -r "echo ini_get('memory_limit') . PHP_EOL;"
+OBS:
+- winpty is used to display the output;
+- format: docker-compose [service] [command] => above: service = php, command = php -r "echo ini_get('memory_limit') . PHP_EOL;"
+
+-- run single service
+docker-compose up -d --build [db/php/nginx/phantomjs] -- rebuild and start services by name !
+
+-- show directory content inside the container
+$  winpty docker-compose exec php ls -al ./var/sessions -- lists /var/www/symfony/var/sessions dir content
+
