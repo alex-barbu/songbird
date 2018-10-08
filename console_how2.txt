@@ -3,8 +3,24 @@
 $ cd /c/Users/Admin/www/songbird/symfony
 
 1) delete cache
-$ php bin/console cache:clear -e prod -- for "prod" environment
-$ winpty docker-compose exec php php bin/console cache:clear -e prod -- inside the php container
+$ php bin/console cache:clear -e prod -- for "prod" environment -- inside the php container
+$ winpty docker-compose exec php php bin/console cache:clear -e prod
+$ rm -rf var/cache/prod/*
+
+2) create Doctrine entity
+$ winpty docker-compose exec php bin/console generate:doctrine:entity
+
+3) show routes (in symfony dir), or match route
+$ bin/console debug:router | grep fos
+$ bin/console router:match //login -- first slash is doubled in gitbash !!!
+
+4) create schema:
+$ winpty docker-compose exec php bin/console doctrine:schema:create
+$ docker-compose exec db mysql -u root -p root songbird -e "describe user" -- checks if schema sogbird was created and table user exists !
+
+5) Scripts (in songbird directory)
+$ ./symfony/scripts/console router:match //login -- run console command in the php container (symfony)
+$
 
 
 

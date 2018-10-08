@@ -10,3 +10,8 @@ docker-compose up -d --build [db/php/nginx/phantomjs] -- rebuild and start servi
 -- show directory content inside the container
 $  winpty docker-compose exec php ls -al ./var/sessions -- lists /var/www/symfony/var/sessions dir content
 
+-- connect to mysql in db container
+$ winpty docker-compose exec db mysql -u root -p -- pass: root
+
+
+
